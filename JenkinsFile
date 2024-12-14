@@ -1,11 +1,28 @@
 pipeline {
     agent any
-
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                echo 'Running command : mvn clean install for building an app'
             }
         }
+
+       stage('Test'){
+             steps {
+               echo 'Running command : mvn test for Running smoke Tests'
+            }
+         }
+
+      stage('Deploy'){
+             steps {
+               echo 'Running command : uploading artifacts'
+            }
+         }
+
+      stage('Success'){
+             steps {
+               echo 'Success'
+            }
+         }
     }
 }
